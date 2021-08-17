@@ -10,4 +10,4 @@ Online Access to Materials and Resources
 - PC or laptop with an SD card slot (or adapter)
 
 ## References
--[Getting Starteed with Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit)
+- [Getting Starteed with Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit)
