@@ -18,4 +18,4 @@ Online Access to Materials and Resources
 - This training requires the internet
 
 ## References
-- [Getting Starteed with Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit)
+- [Getting Started with Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit)
