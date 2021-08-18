@@ -11,7 +11,7 @@ Online Access to Materials and Resources
 - Wi-Fi card / Wi-Fi Adapter (USB)
 - Keyboard & Mouse (Optional)
 
-## Software Requirements
+## Software Requirement
 - [balenaEtcher](https://www.balena.io/etcher/)
 
 ## Other Requirement
