@@ -1,5 +1,0 @@
-lxml
-pkbar
-beautifulsoup4
-Pillow
-matplotlib
