@@ -81,7 +81,7 @@ def main():
             else:
                 label = "With Mask"
 
-            color = (0, 255, 0) if label == "Mask" else (255,0,0)
+            color = (0, 255, 0) if label == "With Mask" else (0 , 0, 255)
             # color = (0, 255, 0)
             cv2.putText(img, label, (startX, startY - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
             cv2.rectangle(img,(startX, startY),(endX, endY), color, 2)
