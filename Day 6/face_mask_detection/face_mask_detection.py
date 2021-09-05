@@ -75,7 +75,6 @@ def main():
 
         for (box, prediction) in zip(positions, predictions):
             (startX, startY, endX, endY) = box
-            # label = "Without Mask" if prediction == 0 else "With Mask"
 
             if prediction == 0:
                 label = "Without Mask"
