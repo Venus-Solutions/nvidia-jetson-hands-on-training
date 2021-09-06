@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jetson Nano</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+      body { margin: 0; padding-bottom: 3rem; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+      #form { background: rgba(0, 0, 0, 0.15); padding: 0.25rem; position: fixed; bottom: 0; left: 0; right: 0; display: flex; height: 3rem; box-sizing: border-box; backdrop-filter: blur(10px); }
+      #input { border: none; padding: 0 1rem; flex-grow: 1; border-radius: 2rem; margin: 0.25rem; }
+      #input:focus { outline: none; }
+      #form > button { background: #333; border: none; padding: 0 1rem; margin: 0.25rem; border-radius: 3px; outline: none; color: #fff; }
+
+      #messages { list-style-type: none; margin: 0; padding: 0; }
+      #messages > li { padding: 0.5rem 1rem; }
+      #messages > li:nth-child(odd) { background: #efefef; }
+    </style>
+  </head>
+  <body>
+      <div>
+          <canvas id="sensorChart"></canvas>
+      </div>
+  </body>
+  <script>
+      var ctx = document.getElementById('sensorChart');
+
+      var sensorChart = new Chart(ctx, {
+          type: 'line',
+          data: {
+              labels: [],
+              datasets: [{
+                  label: "Temperature",
+                  backgroundColor: 'rgb(255, 99, 132)',
+                  borderColor: 'rgb(255, 99, 132)',
+                  data: [0],
+              },
+              {
+                  label: "Photo",
+                  backgroundColor: 'rgb(99, 255, 132)',
+                  borderColor: 'rgb(99, 255, 132)',
+                  data: [0],
+              },
+              {
+                  label: "VR",
+                  backgroundColor: 'rgb(99, 132, 255)',
+                  borderColor: 'rgb(99, 132, 255)',
+                  data: [0],
+              },
+            ]
+          },
+          options: {
+              showLines: true,
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                          min: 0,
+                          max: 255
+                      },
+                  }],
+              },
+          }
+        });
+
+      (function() {          
+          var socket = io.connect('http://localhost:8000');
+          
+          socket.on('sensorChart', function (data) {
+              var d = new Date();
+              sensorChart.data.datasets[0].data.push(data.temp);
+              sensorChart.data.labels.push(d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
+              sensorChart.update();
+
+              sensorChart.data.datasets[1].data.push(data.photo);
+              sensorChart.data.labels.push(d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
+              sensorChart.update();
+
+              sensorChart.data.datasets[2].data.push(data.vr);
+              sensorChart.data.labels.push(d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds());
+              sensorChart.update();
+            });
+        })();
+  </script>
+</html>
