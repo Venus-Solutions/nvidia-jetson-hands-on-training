@@ -21,4 +21,5 @@ Online Access to Materials and Resources
 ## References
 - [Getting Started with Jetson Nano Developer Kit](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit)
 - [Face Mask Detection Dataset (7,553 Images)](https://www.kaggle.com/omkargurav/face-mask-dataset)
+- [Getting Started with PyTorch](https://pytorch.org/get-started/locally/)
 - [Jetson Nano GPIO](https://github.com/NVIDIA/jetson-gpio)
